@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InventoryPro — Help & About</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body onload="authGuard();">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2 style="text-align:center; color:white; margin-bottom:25px;">
+            Inventory<span style="color:#00a884;">Pro</span>
+        </h2>
+
+        <a href="index.html">📊 Dashboard</a>
+        <a href="products.html">📦 Manage Stock</a>
+        <a href="stock.html">📁 Stock List</a>
+        <a href="sales.html">💸 Sales</a>
+        <a href="reports.html">📝 History / Logs</a>
+        <a href="profile.html">👤 Profile</a>
+        <a href="help.html">❓ Help</a>
+        <a href="#" onclick="logoutUser()">🚪 Logout</a>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+
+        <h2 style="color:white;">Help & About</h2>
+
+        <!-- ABOUT CARD -->
+        <div class="card" style="margin-top:25px;">
+            <h3>About InventoryPro</h3>
+            <p style="margin-top:10px;">
+                InventoryPro is a lightweight, modern inventory management system 
+                built with HTML, CSS, and JavaScript using localStorage — no backend required.
+            </p>
+            <p style="margin-top:10px;">
+                It helps you manage products, sales, stock logs, and reports in a clean,
+                professional dashboard UI.
+            </p>
+        </div>
+
+        <!-- HOW TO USE -->
+        <div class="card" style="margin-top:25px;">
+            <h3>How To Use</h3>
+
+            <p class="help-step">🔹 <b>Login:</b> Enter your admin credentials to access the system.</p>
+            <p class="help-step">🔹 <b>Dashboard:</b> View total items, stock, sales & charts.</p>
+            <p class="help-step">🔹 <b>Manage Stock:</b> Add, update, or delete items.</p>
+            <p class="help-step">🔹 <b>Stock List:</b> Search items with filters.</p>
+            <p class="help-step">🔹 <b>Sales:</b> Record new sales and auto-update inventory.</p>
+            <p class="help-step">🔹 <b>History:</b> See logs of everything you change.</p>
+            <p class="help-step">🔹 <b>Profile:</b> Change login username/password.</p>
+            <p class="help-step">🔹 <b>Logout:</b> Securely exit your system.</p>
+        </div>
+
+        <!-- SUPPORT -->
+        <div class="card" style="margin-top:25px;">
+            <h3>Support</h3>
+            <p style="margin-top:10px;">
+                Having trouble? Restart your browser or clear localStorage if needed.<br>
+                For project improvements, update the JS files as needed.
+            </p>
+        </div>
+
+    </div>
+
+    <script src="JS/login.js"></script>
+
+</body>
+</html>

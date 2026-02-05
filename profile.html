@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InventoryPro — Profile Settings</title>
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <style>
+        .profile-center {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: url('https://cdn-icons-png.flaticon.com/512/149/149071.png');
+            background-size: cover;
+            background-position: center;
+            border: 3px solid var(--primary);
+        }
+
+        .setting-label {
+            color: white;
+            margin-top: 10px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .theme-preview {
+            width: 100%;
+            height: 60px;
+            border-radius: 12px;
+            margin-top: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+    </style>
+</head>
+
+<body onload="authGuard(); loadProfile();">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2 style="text-align:center; color:white; margin-bottom:25px;">
+            Inventory<span style="color:#00a884;">Pro</span>
+        </h2>
+
+        <a href="index.html">📊 Dashboard</a>
+        <a href="products.html">📦 Manage Stock</a>
+        <a href="stock.html">📁 Stock List</a>
+        <a href="sales.html">💸 Sales</a>
+        <a href="reports.html">📝 History / Logs</a>
+        <a href="profile.html">👤 Profile</a>
+        <a href="help.html">❓ Help</a>
+        <a href="#" onclick="logoutUser()">🚪 Logout</a>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+
+        <h2 style="color:white;">Profile & Settings</h2>
+
+        <!-- Main Card -->
+        <div class="card" style="margin-top:25px; max-width:650px;">
+
+            <!-- Avatar -->
+            <div class="profile-center">
+                <div class="avatar"></div>
+            </div>
+
+            <h3 style="text-align:center; margin-top:10px;">Your Account</h3>
+
+            <!-- Username -->
+            <label class="setting-label">Username</label>
+            <input type="text" id="p_username">
+
+            <!-- Password -->
+            <label class="setting-label">Password</label>
+            <input type="password" id="p_password">
+
+            <button class="btn" onclick="saveProfile()">Save Changes</button>
+
+            <hr style="margin:25px 0; border-color:rgba(255,255,255,0.3)">
+
+            <h3>Theme Preview</h3>
+            <div class="theme-preview"></div>
+
+            <p style="margin-top:10px; color:white; opacity:0.8;">
+                Theme is currently set to: <b>Green + Blue Professional</b>
+            </p>
+
+            <hr style="margin:25px 0; border-color:rgba(255,255,255,0.3)">
+
+            <button class="btn-danger" onclick="resetAccount()">Reset Account</button>
+        </div>
+
+    </div>
+
+    <script src="JS/utils.js"></script>
+    <script src="JS/login.js"></script>
+    <script src="JS/profile.js"></script>
+
+</body>
+</html>

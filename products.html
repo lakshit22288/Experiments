@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InventoryPro — Manage Stock</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body onload="authGuard(); loadItems();">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2 style="text-align:center; color:white; margin-bottom:25px;">
+            Inventory<span style="color:#00a884;">Pro</span>
+        </h2>
+
+        <a href="index.html">📊 Dashboard</a>
+        <a href="products.html">📦 Manage Stock</a>
+        <a href="stock.html">📁 Stock List</a>
+        <a href="sales.html">💸 Sales</a>
+        <a href="reports.html">📝 History / Logs</a>
+        <a href="profile.html">👤 Profile</a>
+        <a href="help.html">❓ Help</a>
+        <a href="#" onclick="logoutUser()">🚪 Logout</a>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+
+        <h2 style="color:white;">Manage Stock</h2>
+
+        <!-- Form + Table -->
+        <div style="display:grid; grid-template-columns: 1fr 2fr; gap:25px; margin-top:25px;">
+
+            <!-- Card Form -->
+            <div class="card">
+                <h3>Add / Update Item</h3>
+
+                <input type="hidden" id="editId">
+
+                <input type="text" id="name" placeholder="Item name">
+                <input type="number" id="quantity" placeholder="Quantity">
+                <input type="number" id="price" placeholder="Price (per unit)">
+                <input type="text" id="supplier" placeholder="Supplier name">
+                <input type="text" id="category" placeholder="Category">
+
+                <button class="btn" onclick="saveItem()">Save Item</button>
+                <button class="btn-danger" onclick="deleteItem()" id="deleteBtn" style="display:none;">Delete Item</button>
+            </div>
+
+            <!-- Stock Table -->
+            <div class="card">
+                <h3>Stock Items</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="stockTable"></tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="JS/utils.js"></script>
+    <script src="JS/product.js"></script>
+    <script src="JS/login.js"></script>
+
+</body>
+</html>

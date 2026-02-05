@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InventoryPro — Sales</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body onload="authGuard(); loadSalesPage();">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2 style="text-align:center; color:white; margin-bottom:25px;">
+            Inventory<span style="color:#00a884;">Pro</span>
+        </h2>
+
+        <a href="index.html">📊 Dashboard</a>
+        <a href="products.html">📦 Manage Stock</a>
+        <a href="stock.html">📁 Stock List</a>
+        <a href="sales.html">💸 Sales</a>
+        <a href="reports.html">📝 History / Logs</a>
+        <a href="profile.html">👤 Profile</a>
+        <a href="help.html">❓ Help</a>
+        <a href="#" onclick="logoutUser()">🚪 Logout</a>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+
+        <h2 style="color:white;">Sales Management</h2>
+
+        <div style="display:grid; grid-template-columns:1fr 2fr; gap:25px; margin-top:25px;">
+
+            <!-- SALES FORM CARD -->
+            <div class="card">
+                <h3>New Sale</h3>
+
+                <select id="saleItem" onchange="selectSaleItem()">
+                    <option value="">Select Item</option>
+                </select>
+
+                <input type="number" id="salePrice" placeholder="Price" readonly>
+                <input type="number" id="saleQty" placeholder="Quantity" oninput="updateTotal()">
+                <input type="text" id="saleTotal" placeholder="Total Amount" readonly>
+
+                <button class="btn" onclick="addSale()">Add Sale</button>
+                <button class="btn-danger" onclick="clearSales()">Clear Sales History</button>
+            </div>
+
+            <!-- SALES TABLE -->
+            <div class="card">
+                <h3>Sales History</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Qty</th>
+                            <th>Total</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="salesTable"></tbody>
+
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="JS/utils.js"></script>
+    <script src="JS/sales.js"></script>
+    <script src="JS/login.js"></script>
+
+</body>
+</html>

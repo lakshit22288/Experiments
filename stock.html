@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InventoryPro — Stock List</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body onload="authGuard(); loadStock();">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2 style="text-align:center; color:white; margin-bottom:25px;">
+            Inventory<span style="color:#00a884;">Pro</span>
+        </h2>
+
+        <a href="index.html">📊 Dashboard</a>
+        <a href="products.html">📦 Manage Stock</a>
+        <a href="stock.html">📁 Stock List</a>
+        <a href="sales.html">💸 Sales</a>
+        <a href="reports.html">📝 History / Logs</a>
+        <a href="profile.html">👤 Profile</a>
+        <a href="help.html">❓ Help</a>
+        <a href="#" onclick="logoutUser()">🚪 Logout</a>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+
+        <h2 style="color:white;">Stock List</h2>
+
+        <!-- Search Card -->
+        <div class="card" style="margin-top:25px;">
+
+            <h3>Search & Filter</h3>
+
+            <input type="text" id="searchName" placeholder="Search by name" oninput="filterStock()">
+            <input type="text" id="searchCategory" placeholder="Search by category" oninput="filterStock()">
+            <input type="text" id="searchSupplier" placeholder="Search by supplier" oninput="filterStock()">
+
+        </div>
+
+        <!-- Stock Table -->
+        <div class="card" style="margin-top:25px;">
+            <h3>Items</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                        <th>Supplier</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+
+                <tbody id="stockList"></tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="JS/utils.js"></script>
+    <script src="JS/stock.js"></script>
+    <script src="JS/login.js"></script>
+
+</body>
+</html>

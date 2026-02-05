@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InventoryPro — History & Logs</title>
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <style>
+        /* Timeline UI */
+        .timeline {
+            position: relative;
+            margin: 20px 10px;
+            padding-left: 25px;
+        }
+
+        .timeline:before {
+            content: "";
+            position: absolute;
+            left: 12px;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--secondary);
+            border-radius: 4px;
+        }
+
+        .log-item {
+            margin-bottom: 18px;
+            padding: 12px 15px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(8px);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .log-time {
+            font-size: 13px;
+            opacity: 0.8;
+            color: white;
+        }
+    </style>
+</head>
+
+<body onload="authGuard(); loadLogs();">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2 style="text-align:center; color:white; margin-bottom:25px;">
+            Inventory<span style="color:#00a884;">Pro</span>
+        </h2>
+
+        <a href="index.html">📊 Dashboard</a>
+        <a href="products.html">📦 Manage Stock</a>
+        <a href="stock.html">📁 Stock List</a>
+        <a href="sales.html">💸 Sales</a>
+        <a href="reports.html">📝 History / Logs</a>
+        <a href="profile.html">👤 Profile</a>
+        <a href="help.html">❓ Help</a>
+        <a href="#" onclick="logoutUser()">🚪 Logout</a>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+
+        <h2 style="color:white;">Activity History & Logs</h2>
+
+        <!-- Filter Card -->
+        <div class="card" style="margin-top:20px;">
+            <h3>Search Logs</h3>
+
+            <input type="text" id="logSearch" placeholder="Search keyword..." oninput="filterLogs()">
+            <input type="date" id="logDate" onchange="filterLogs()">
+        </div>
+
+        <!-- Timeline View -->
+        <div class="card" style="margin-top:25px;">
+            <h3>Timeline View</h3>
+            <div class="timeline" id="timelineLogs"></div>
+        </div>
+
+        <!-- Table View -->
+        <div class="card" style="margin-top:25px;">
+            <h3>Table View</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Message</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tableLogs"></tbody>
+            </table>
+        </div>
+
+        <button class="btn-danger" onclick="clearLogs()" style="margin-top:25px; width:250px;">
+            Clear All Logs
+        </button>
+
+    </div>
+
+    <script src="JS/utils.js"></script>
+    <script src="JS/reports.js"></script>
+    <script src="JS/login.js"></script>
+
+</body>
+</html>
